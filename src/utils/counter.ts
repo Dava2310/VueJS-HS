@@ -5,8 +5,8 @@
  * @returns The incremented value.
  */
 export const increment = (value: number, step = 1) => {
-  return value + step
-}
+  return value + step;
+};
 
 /**
  * Decrements an already existing value.
@@ -15,5 +15,5 @@ export const increment = (value: number, step = 1) => {
  * @returns The decremented value.
  */
 export const decrement = (value: number, step = 1) => {
-  return value - step
-}
+  return value - step;
+};

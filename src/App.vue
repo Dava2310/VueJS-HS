@@ -1,33 +1,33 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { ref } from 'vue';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
-import { increment, decrement } from './utils/counter'
+import { increment, decrement } from './utils/counter';
 
 /**
  * Count reactive reference
  */
-const count = ref(0)
+const count = ref(0);
 
 /**
  * Step reference.
  */
-const step = ref(1)
+const step = ref(1);
 
 // Handlers for Increment/Decrement/Clear
 const handleIncrement = () => {
-  count.value = increment(count.value, step.value)
-}
+  count.value = increment(count.value, step.value);
+};
 
 const handleDecrement = () => {
-  count.value = decrement(count.value, step.value)
-}
+  count.value = decrement(count.value, step.value);
+};
 
 const handleClear = () => {
-  count.value = 0
-}
+  count.value = 0;
+};
 </script>
 
 <template>
