@@ -40,9 +40,9 @@ const handleClear = () => {
     <p class="text-xl font-bold">Counter: {{ count }}</p>
 
     <div class="flex justify-center gap-4">
-      <Button @click="handleIncrement">Increment</Button>
-      <Button @click="handleDecrement">Decrement</Button>
-      <Button @click="handleClear">Clear</Button>
+      <Button test-id="increment-btn" @click="handleIncrement">Increment</Button>
+      <Button test-id="decrement-btn" @click="handleDecrement">Decrement</Button>
+      <Button test-id="clear-btn" @click="handleClear">Clear</Button>
     </div>
   </div>
 </template>
