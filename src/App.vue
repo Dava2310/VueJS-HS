@@ -32,6 +32,7 @@ const handleClear = () => {
 
 <template>
   <div class="p-8 text-center max-w-sm mx-auto space-y-4 font-sans">
+    <h1 class="text-4xl font-bold text-blue-600">Counter App!</h1>
     <div class="flex flex-col items-start gap-2">
       <Label for="step">Step</Label>
       <Input id="step" v-model.number="step" type="number" />
