@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        run: pnpm i
+        run: pnpm install
 
       - name: Lint
         run: pnpm run lint
