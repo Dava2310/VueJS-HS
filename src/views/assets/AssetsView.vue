@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue';
+import { useHead } from '@unhead/vue';
 import { useQuery } from '@tanstack/vue-query';
 import { toast } from 'vue-sonner';
+
+useHead({ title: 'Assets' });
 import { RouterLink } from 'vue-router';
 import { Plus } from 'lucide-vue-next';
 import DashboardShell from '@/components/DashboardShell.vue';

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useHead } from '@unhead/vue';
 import { useQuery } from '@tanstack/vue-query';
+
+useHead({ title: 'Dashboard' });
 import DashboardShell from '@/components/DashboardShell.vue';
 import { DataTable } from '@/components/ui/data-table';
 import ChartAreaInteractive from './components/ChartAreaInteractive.vue';

@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue';
+import { useHead } from '@unhead/vue';
 import { useQuery } from '@tanstack/vue-query';
 import { toast } from 'vue-sonner';
+
+useHead({ title: 'Employees' });
 import DashboardShell from '@/components/DashboardShell.vue';
 import { DataTable } from '@/components/ui/data-table';
 import { columns } from './components/EmployeesColumns';

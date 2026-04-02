@@ -31,6 +31,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "@tanstack/vue-query": "^5.96.1",
     "@tanstack/vue-table": "^8.21.3",
+    "@unhead/vue": "^2.1.12",
     "@unovis/ts": "^1.6.4",
     "@unovis/vue": "^1.6.4",
     "@vee-validate/zod": "^4.15.1",

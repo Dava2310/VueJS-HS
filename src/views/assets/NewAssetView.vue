@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useHead } from '@unhead/vue';
 import { useQuery } from '@tanstack/vue-query';
 import { RouterLink } from 'vue-router';
+
+useHead({ title: 'New Asset' });
 import { ArrowLeft } from 'lucide-vue-next';
 import DashboardShell from '@/components/DashboardShell.vue';
 import { Button } from '@/components/ui/button';
