@@ -12,6 +12,9 @@ export default [
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tsParser,
+      globals: {
+        ...globals.browser,
+      },
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
@@ -26,6 +29,9 @@ export default [
     languageOptions: {
       parserOptions: {
         parser: tsParser,
+      },
+      globals: {
+        ...globals.browser,
       },
     },
     plugins: {
@@ -45,10 +51,11 @@ export default [
     },
   },
   {
-    files: ['src/components/ui/**/*.vue'],
+    files: ['src/components/ui/**'],
     rules: {
       'vue/multi-word-component-names': 'off',
       'vue/require-default-prop': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
   prettierConfig,
