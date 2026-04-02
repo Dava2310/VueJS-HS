@@ -51,6 +51,14 @@ export default [
     },
   },
   {
+    files: ['playwright.config.ts', 'e2e/**/*.ts'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
     files: ['src/components/ui/**'],
     rules: {
       'vue/multi-word-component-names': 'off',
