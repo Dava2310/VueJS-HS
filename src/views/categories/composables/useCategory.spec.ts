@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { categoryFormSchema, toCategoryVM, toCategoryVMList } from './useCategory';
+import { categoryFormSchema, toCategoryVM } from './useCategory';
 import type { CategoryResponseDto } from '@/api-client';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -128,22 +128,5 @@ describe('toCategoryVM', () => {
   it('sets status to Inactive when deletedAt is set', () => {
     const vm = toCategoryVM(makeDto({ deletedAt: '2025-06-01T00:00:00.000Z' }));
     expect(vm.status).toBe('Inactive');
-  });
-});
-
-// ── toCategoryVMList ──────────────────────────────────────────────────────────
-
-describe('toCategoryVMList', () => {
-  it('maps every DTO in the list', () => {
-    const dtos = [makeDto({ id: 1 }), makeDto({ id: 2, name: 'Monitors' })];
-    const vms = toCategoryVMList(dtos);
-
-    expect(vms).toHaveLength(2);
-    expect(vms[0].id).toBe('1');
-    expect(vms[1].name).toBe('Monitors');
-  });
-
-  it('returns an empty array for an empty input', () => {
-    expect(toCategoryVMList([])).toEqual([]);
   });
 });

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { employeesFormSchema, toEmployeeVM, toEmployeeVMList } from './useEmployee';
+import { employeesFormSchema, toEmployeeVM } from './useEmployee';
 import type { EmployeeResponseDto } from '@/api-client';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -158,22 +158,5 @@ describe('toEmployeeVM', () => {
   it('sets status to Inactive when deletedAt is set', () => {
     const vm = toEmployeeVM(makeDto({ deletedAt: '2025-06-01T00:00:00.000Z' }));
     expect(vm.status).toBe('Inactive');
-  });
-});
-
-// ── toEmployeeVMList ──────────────────────────────────────────────────────────
-
-describe('toEmployeeVMList', () => {
-  it('maps every DTO in the list', () => {
-    const dtos = [makeDto({ id: 1 }), makeDto({ id: 2, fullName: 'John Smith' })];
-    const vms = toEmployeeVMList(dtos);
-
-    expect(vms).toHaveLength(2);
-    expect(vms[0].id).toBe('1');
-    expect(vms[1].fullName).toBe('John Smith');
-  });
-
-  it('returns an empty array for an empty input', () => {
-    expect(toEmployeeVMList([])).toEqual([]);
   });
 });
