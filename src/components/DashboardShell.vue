@@ -2,6 +2,8 @@
 import AppSidebar from '@/components/AppSidebar.vue';
 import SiteHeader from '@/components/SiteHeader.vue';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
+import 'vue-sonner/style.css';
+import { Toaster } from '@/components/ui/sonner';
 
 defineProps<{
   title: string;
@@ -23,4 +25,5 @@ defineProps<{
       </div>
     </SidebarInset>
   </SidebarProvider>
+  <Toaster position="bottom-right" rich-colors close-button expand />
 </template>
