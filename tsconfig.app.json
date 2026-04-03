@@ -14,5 +14,11 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["src/api-client", "src/**/*.spec.ts", "src/**/*.test.ts"]
+  "exclude": [
+    "src/api-client",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/*.stories.ts",
+    "src/**/*.stories.tsx"
+  ]
 }

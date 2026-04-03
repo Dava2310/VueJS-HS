@@ -15,7 +15,9 @@
     "prepare": "husky",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "test:e2e": "playwright test --project=chromium"
+    "test:e2e": "playwright test --project=chromium",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,ts,vue}": [
@@ -73,6 +75,16 @@
     "typescript": "~5.9.3",
     "vite": "^8.0.0",
     "vitest": "^4.1.0",
-    "vue-tsc": "^3.2.5"
+    "vue-tsc": "^3.2.5",
+    "storybook": "^10.3.4",
+    "@storybook/vue3-vite": "^10.3.4",
+    "@chromatic-com/storybook": "^5.1.1",
+    "@storybook/addon-vitest": "^10.3.4",
+    "@storybook/addon-a11y": "^10.3.4",
+    "@storybook/addon-docs": "^10.3.4",
+    "@storybook/addon-onboarding": "^10.3.4",
+    "eslint-plugin-storybook": "^10.3.4",
+    "playwright": "^1.59.1",
+    "@vitest/browser-playwright": "4.1.0"
   }
 }
