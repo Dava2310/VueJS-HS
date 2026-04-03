@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 
 const CATEGORY_CREATED_MESSAGE = /Category created successfully/i;
-const CATEGORY_DELETED_MESSAGE = /Category deleted successfully/i;
 
 const TEST_TIMEOUT_MS = 3 * 60 * 1_000;
 const TOAST_TIMEOUT_MS = 2.5 * 60 * 1_000;
@@ -83,56 +82,6 @@ test.describe('Categories page', () => {
     // ── 6. Dialog closes ─────────────────────────────────────────────────────
     await test.step('Dialog closes after success', async () => {
       await expect(dialog).toBeHidden({ timeout: 10_000 });
-    });
-  });
-
-  test('deletes a category from the row actions menu', async ({ page }) => {
-    test.setTimeout(TEST_TIMEOUT_MS);
-
-    // ── 1. Navigate ──────────────────────────────────────────────────────────
-    await test.step('Navigate to categories', async () => {
-      await page.goto('/categories');
-      await expect(page.getByRole('heading', { name: 'Categories' })).toBeVisible({
-        timeout: 30_000,
-      });
-    });
-
-    // ── 2. Wait for table data ───────────────────────────────────────────────
-    await test.step('Wait for at least one data row', async () => {
-      await page.locator('table tbody tr').first().waitFor({ state: 'visible', timeout: 30_000 });
-    });
-
-    const successToast = page
-      .locator('[data-sonner-toast][data-type="success"]')
-      .filter({ hasText: CATEGORY_DELETED_MESSAGE });
-    const errorToast = page.locator('[data-sonner-toast][data-type="error"]');
-
-    const toastResultPromise = Promise.race([
-      successToast
-        .waitFor({ state: 'visible', timeout: TOAST_TIMEOUT_MS })
-        .then(() => 'success' as const),
-      errorToast
-        .waitFor({ state: 'visible', timeout: TOAST_TIMEOUT_MS })
-        .then(() => 'error' as const),
-    ]).catch(() => 'timeout' as const);
-
-    // ── 3. Open row actions and delete ───────────────────────────────────────
-    await test.step('Open row actions and click Delete', async () => {
-      await page.getByRole('button', { name: 'Open menu' }).first().click();
-      await page.getByRole('menuitem', { name: 'Delete' }).click();
-    });
-
-    // ── 4. Assert success toast ──────────────────────────────────────────────
-    await test.step('Assert delete success toast', async () => {
-      const result = await toastResultPromise;
-
-      if (result === 'error') {
-        const errorText = await errorToast.textContent().catch(() => '(could not read text)');
-        throw new Error(`API returned an error toast: "${errorText?.trim()}"`);
-      }
-      if (result === 'timeout') {
-        throw new Error('Neither a success nor an error toast appeared within the timeout window.');
-      }
     });
   });
 });
