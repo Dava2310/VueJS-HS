@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from 'eslint-plugin-storybook';
+
 import js from '@eslint/js';
 import pluginVue from 'eslint-plugin-vue';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
@@ -70,4 +73,5 @@ export default [
   {
     ignores: ['dist/**', 'node_modules/**', 'src/api-client/**'],
   },
+  ...storybook.configs['flat/recommended'],
 ];
