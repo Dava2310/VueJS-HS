@@ -11,6 +11,8 @@ import {
 } from '@/components/ui/card';
 import { Layers, Package, Percent, Tag, Users } from 'lucide-vue-next';
 
+import { formatDisponibility } from '../composables/dashboardUtils';
+
 defineProps<{ metrics: AssetsMetricsDto }>();
 
 const cardHeaderLayout =
@@ -18,10 +20,6 @@ const cardHeaderLayout =
 const metricCardActionClass = 'min-w-0 max-w-full';
 const metricBadgeClass =
   'h-auto min-h-5 max-w-full shrink overflow-visible whitespace-normal py-1 leading-snug items-start';
-
-function formatDisponibility(value: number): string {
-  return Number.isInteger(value) ? `${value}%` : `${value.toFixed(1)}%`;
-}
 </script>
 
 <template>
